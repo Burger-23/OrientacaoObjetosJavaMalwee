@@ -1,9 +1,14 @@
 package br.com.carroturbo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LojadeCarros {
 
 	public static void main(String[] args) {
 
+		List<Carro> listacarro = new ArrayList<Carro>();
+		
 		Carro carro1 = new Carro();
 		Carro carro2 = new Carro();
 		Carro carro3 = new Carro();
@@ -36,67 +41,40 @@ public class LojadeCarros {
 		carro5.setAno(2020);
 		carro5.setQtdPortas(4);
 		
+		listacarro.add(carro1);
+		listacarro.add(carro2);
+		listacarro.add(carro3);
+		listacarro.add(carro4);
+		listacarro.add(carro5);
 		
-		System.out.println("----------");
-		System.out.println("|1º Carro|");
-		System.out.println("----------");
-		System.out.println(carro1.getMarca()); 
-		System.out.println(carro1.getModelo());
-		System.out.print("Ano: ");
-		System.out.println(carro1.getAno());
-		System.out.print("Quantidade de portas: ");
-		System.out.println(carro1.getQtdPortas());
 		
-		System.out.print("\n");
-		
-		System.out.println("----------");
-		System.out.println("|2º Carro|");
-		System.out.println("----------");
-		System.out.println(carro2.getMarca()); 
-		System.out.println(carro2.getModelo());
-		System.out.print("Ano: ");
-		System.out.println(carro2.getAno());
-		System.out.print("Quantidade de portas: ");
-		System.out.println(carro2.getQtdPortas());
-		
-		System.out.print("\n");
+		System.out.println("-------------------------");
+		System.out.println("|--CARROS--CADASTRADOS--|");
+		System.out.println("-------------------------");
+		for(Carro people : listacarro) {
+			System.out.println("\n");
 
-		System.out.println("----------");
-		System.out.println("|3º Carro|");
-		System.out.println("----------");
-		System.out.println(carro3.getMarca()); 
-		System.out.println(carro3.getModelo());
-		System.out.print("Ano: ");
-		System.out.println(carro3.getAno());
-		System.out.print("Quantidade de portas: ");
-		System.out.println(carro3.getQtdPortas());
-		
-		System.out.print("\n");
-		
-		System.out.println("----------");
-		System.out.println("|4º Carro|");
-		System.out.println("----------");
-		System.out.println(carro4.getMarca()); 
-		System.out.println(carro4.getModelo());
-		System.out.print("Ano: ");
-		System.out.println(carro4.getAno());
-		System.out.print("Quantidade de portas: ");
-		System.out.println(carro4.getQtdPortas());
-		
-		System.out.print("\n");
+			
+			System.out.print("Marca: ");
+			System.out.println(people.getMarca());
+			
+			System.out.print("Modelo: ");
+			System.out.println(people.getModelo());
+			
+			System.out.print("Ano: ");
+			System.out.println(people.getAno());
+			
+			System.out.print("Quantidade de portas: ");
+			System.out.println(people.getQtdPortas()); 
+			
+			System.out.println("\n");
 
-		System.out.println("----------");
-		System.out.println("|5º Carro|");
-		System.out.println("----------");
-		System.out.println(carro5.getMarca()); 
-		System.out.println(carro5.getModelo());
-		System.out.print("Ano: ");
-		System.out.println(carro5.getAno());
-		System.out.print("Quantidade de portas: ");
-		System.out.println(carro5.getQtdPortas());
+			System.out.println("-------------------------");
 
+			
+		}
 		
-		
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.burger;
+package br.com.burger_exemplos;
 
 public class Pessoa {
 	
@@ -30,5 +30,14 @@ public class Pessoa {
 		
 		public void setAnoDeNascimento(int anoDeNascimento) {
 			this.anoDeNascimento = anoDeNascimento;
+			
 		}
-}
+
+		@Override
+		public String toString() {
+			return "Nome: " + nome + " \nAno De Nascimento: " + anoDeNascimento + " \nSexo: " + sexo ;
+		}
+
+	
+			
+		}
