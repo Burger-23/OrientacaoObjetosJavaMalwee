@@ -2,7 +2,7 @@ package br.com.burger.pessoa;
 
 import java.util.Calendar;
 
-//CLASSE\\
+	//CLASSE\\
 public class Pessoa {
 	
 	
@@ -33,7 +33,6 @@ public class Pessoa {
 	}
 	private void setIdade() {
 		Calendar calendar = Calendar.getInstance();
-		
 		this.idade = calendar.get(Calendar.YEAR) - getAnoDeNascimento();
 	}
 	public double getAltura() {
