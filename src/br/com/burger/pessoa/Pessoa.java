@@ -3,8 +3,7 @@ package br.com.burger.pessoa;
 import java.util.Calendar;
 
 	//CLASSE\\
-public class Pessoa {
-	
+public class Pessoa extends Endereco {
 	
 	//ATRIBUTOS\\
 	
@@ -46,5 +45,5 @@ public class Pessoa {
 	
 	
 	
-
+	
 }

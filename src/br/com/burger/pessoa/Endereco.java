@@ -1,29 +1,38 @@
 package br.com.burger.pessoa;
 
-public class Endereco {
+public class Endereco extends Cidade{
 
 	//ATRIBUTOS\\
-	private String cidade;
-	private String estado;
-	private String pais;
+	private String NomeRua;
+	private int Numero;
+	private String Bairro;
+	private String Complemento;
 	
 	//MÉTODOS\\
-	public String getCidade() {
-		return cidade;
+	public String getNomeRua() {
+		return NomeRua;
 	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setNomeRua(String nomeRua) {
+		NomeRua = nomeRua;
 	}
-	public String getEstado() {
-		return estado;
+	public int getNumero() {
+		return Numero;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setNumero(int numero) {
+		Numero = numero;
 	}
-	public String getPais() {
-		return pais;
+	public String getBairro() {
+		return Bairro;
 	}
-	public void setPais(String pais) {
-		this.pais = pais;
-	}	
+	public void setBairro(String bairro) {
+		Bairro = bairro;
+	}
+	public String getComplemento() {
+		return Complemento;
+	}
+	public void setComplemento(String complemento) {
+		Complemento = complemento;
+	}
+	
+
 }
