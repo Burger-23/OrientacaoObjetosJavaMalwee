@@ -1,4 +1,4 @@
-package br.com.burger.pessoa;
+package br.com.senai.endereco;
 
 public class Cidade extends Estado{
 	
