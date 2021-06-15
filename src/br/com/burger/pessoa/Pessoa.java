@@ -36,6 +36,7 @@ public class Pessoa extends Endereco {
 	private void setIdade() {
 		Calendar calendar = Calendar.getInstance();
 		this.idade = calendar.get(Calendar.YEAR) - getAnoDeNascimento();
+		
 	}
 	public double getAltura() {
 		return altura;

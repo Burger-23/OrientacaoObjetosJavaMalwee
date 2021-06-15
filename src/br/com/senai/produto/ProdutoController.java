@@ -11,46 +11,55 @@ public class ProdutoController {
 	}
 	
 
-	public int lerOpcao1() {
-		System.out.println("Informe a Opção Desejada: ");
+	public int lerOpcao() {
+		System.out.print("Informe a Opção Desejada: ");
 		return tec.nextInt();
 		
 	}
 
 	public void menu() {
 		
-	System.out.println("\n");
-	System.out.println("|----------------MENU----------------|");
-	System.out.println("|3 -> CADASTRAR PRODUTOS             |");
-	System.out.println("|4 -> LISTAR PRODUTOS CADASTRADOS    |");
-	System.out.println("|0 -> SAIR DO SISTEMA                |");
-	System.out.println("|------------------------------------|");
-	System.out.print("\n");
-		
 	}
 	
 	public Produto cadastrarProduto() {
-		Produto produto = new produto();
+		Produto produto = new Produto();
 		
+		System.out.println("\n");
 		System.out.println("---CADASTRAR--PRODUTOS---");
-		System.out.println("Informe o Nome do Produto: ");
-		tec.nextLine();
-		produto.setValorDoProduto(tec.next());
+		System.out.println("\n");
+
+		System.out.print("Informe o Nome do Produto: ");
+		produto.setNomeDoProduto(tec.nextLine());
+		System.out.print("Informe a Quantidade:  ");
+		produto.setQuantidadeProduto(tec.nextInt());
 		
-		System.out.println("Informe a Quantidade:  ");
-		produto.setNomeDoProduto(tec.nextInt());
+		System.out.print("Informe o Valor Unitário do Produto: ");
+		produto.setValorUntProd(tec.nextDouble());
 		
-		System.out.println("Informe o Valor Unitário do Produto: ");
-		produto.setValorUntProd(tec.nextInt());
+		produto.setValorTotalProd(produto.getValorUntProd()*produto.getQuantidadeProduto());
 		
 		return produto;
 	
 	}
 
 
-	public void listarProdutos(List<Produto> produtos) {
-	
-		
+	public List<Produto> listarProdutos(List<Produto> produtos) {
+		System.out.println("\n");
+		System.out.println("---PRODUTOS--CADASTRADOS---");
+		System.out.println("\n");
+
+		System.out.printf("| %12s | %6s | %6s |\n", "Nome do Produto", "Quantidade", "Valor Unitário");
+			
+		for(int i = 0; i < produtos.size(); i++) {
+			
+			System.out.printf("| %12s | %6d | %6,2f |\n ",
+					produtos.get(i).getNomeDoProduto(),
+					produtos.get(i).getQuantidadeProduto(),
+					produtos.get(i).getValorUntProd());
+					
+		}
+		return produtos;
+
 	}
 	
 
