@@ -27,13 +27,11 @@ public class ProgramaPrincipal {
 			produtoController.menu();
 			
 			int opcao = pessoaController.lerOpcao();
-			int opcao1 = produtoController.lerOpcao1();
+			
 			
 			switch(opcao){
 				case 1:
-					
 					pessoas.add(pessoaController.cadastrarPessoa());
-					
 					break;
 					
 				case 2:
@@ -42,12 +40,10 @@ public class ProgramaPrincipal {
 					
 				case 3:
 					produtos.add(produtoController.cadastrarProduto());
-					
 					break;
 					
 				case 4:
 					produtoController.listarProdutos(produtos);
-					
 					break;
 					
 				
