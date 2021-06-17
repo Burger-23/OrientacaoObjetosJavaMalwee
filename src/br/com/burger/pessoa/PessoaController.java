@@ -22,6 +22,7 @@ public class PessoaController {
 		System.out.println("|2 -> LISTAR PESSOAS CADASTRADAS     |");
 		System.out.println("|3 -> CADASTRAR PRODUTOS             |");
 		System.out.println("|4 -> LISTAR PRODUTOS CADASTRADOS    |");
+		System.out.println("|5 -> EDITAR PRODUTO                 |");
 		System.out.println("|0 -> SAIR DO SISTEMA                |");
 		System.out.println("|------------------------------------|");
 		System.out.print("\n");
@@ -85,10 +86,11 @@ public class PessoaController {
 		System.out.println("\n");
 
 		
-		System.out.printf ("| %15s | %4s | %5s | %6s | %11s| %4s | %4s | %23s | %30s | %30s | %4s | %30s |\n", "Nome", "Ano De Nascimento", "Idade", "Altura", "Pais", "Sigla do Pais", "Nome do Estado", "Sigla do Estado",
+		System.out.printf ("| %15s | %4s | %5s | %6s | %11s| %4s | %23s | %4s | %30s | %30s | %30s | %4s | %30s |\n", "Nome", "Ano De Nascimento", "Idade", "Altura", "Pais", "Sigla do Pais", "Nome do Estado", "Sigla do Estado",
 				"Nome da Cidade", "Nome da Rua", "Bairro", "Número da Casa", "Complemento");
 		for(int i = 0; i < pessoas.size(); i++) {
-			System.out.printf("| %15s | %4d | %5d | %6.2f | %10s | %4s | %15s | %4s | %23s | %30s | %30s | %4s | %30s |\n", 
+			System.out.printf("| %15s | %4d | %5d | %6.2f | %11s | %4s | %23s | %4s | %30"
+					+ "s | %30s | %30s | %4s | %30s |\n", 
 					pessoas.get(i).getNome(),
 					pessoas.get(i).getAnoDeNascimento(),
 					pessoas.get(i).getIdade(),
