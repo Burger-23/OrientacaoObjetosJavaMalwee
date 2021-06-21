@@ -2,6 +2,7 @@ package br.com.burger.pessoa;
 
 import java.util.List;
 import java.util.Scanner;
+import br.com.burger.pessoa.Pessoa;
 
 public class PessoaController {
 	private Scanner tec;
@@ -20,9 +21,12 @@ public class PessoaController {
 		System.out.println("|----------------MENU----------------|");
 		System.out.println("|1 -> CADASTRAR PESSOAS              |");
 		System.out.println("|2 -> LISTAR PESSOAS CADASTRADAS     |");
-		System.out.println("|3 -> CADASTRAR PRODUTOS             |");
-		System.out.println("|4 -> LISTAR PRODUTOS CADASTRADOS    |");
-		System.out.println("|5 -> EDITAR PRODUTO                 |");
+		System.out.println("|3 -> EDITAR PESSOAS CADASTRADAS     |");
+		System.out.println("|4 -> EXCLUIR PESSOAS CADASTRADAS    |");
+		System.out.println("|5 -> CADASTRAR PRODUTOS             |");
+		System.out.println("|6 -> LISTAR PRODUTOS CADASTRADOS    |");
+		System.out.println("|7 -> EDITAR PRODUTO                 |");
+		System.out.println("|8 -> EXCLUIR PRODUTO                |");
 		System.out.println("|0 -> SAIR DO SISTEMA                |");
 		System.out.println("|------------------------------------|");
 		System.out.print("\n");
@@ -81,16 +85,23 @@ public class PessoaController {
 	}
 	
 	public List<Pessoa> listarPessoas(List<Pessoa> pessoas){
+		
+		if(pessoas.size() <=  0) {
+			System.out.println("\n");
+			System.out.println("Você não possui nenhuma pessoa cadastrada.");
+			return null;
+		}
+		
 		System.out.println("\n");
 		System.out.println("-----------PESSOAS---CADASTRADAS-----------");
-		System.out.println("\n");
 
 		
-		System.out.printf ("| %15s | %4s | %5s | %6s | %11s| %4s | %23s | %4s | %30s | %30s | %30s | %4s | %30s |\n", "Nome", "Ano De Nascimento", "Idade", "Altura", "Pais", "Sigla do Pais", "Nome do Estado", "Sigla do Estado",
+		System.out.printf ("| %2s | %15s | %20s | %20s | %20s | %20s| %21s | %23s | %20s | %30s | %30s | %30s | %21s | %30s |\n", "ID", "Nome", "Ano De Nascimento", "Idade", "Altura", "Pais", "Sigla do Pais", "Nome do Estado", "Sigla do Estado",
 				"Nome da Cidade", "Nome da Rua", "Bairro", "Número da Casa", "Complemento");
 		for(int i = 0; i < pessoas.size(); i++) {
-			System.out.printf("| %15s | %4d | %5d | %6.2f | %11s | %4s | %23s | %4s | %30"
-					+ "s | %30s | %30s | %4s | %30s |\n", 
+			System.out.printf("| %2d | %15s | %20d | %20d | %20s | %19s | %21s | %23s | %20s | %30"
+					+ "s | %30s | %30s | %21s | %30s |\n", 
+					i + 1,
 					pessoas.get(i).getNome(),
 					pessoas.get(i).getAnoDeNascimento(),
 					pessoas.get(i).getIdade(),
@@ -107,6 +118,83 @@ public class PessoaController {
 		}
 		return pessoas;
 	}
- 	
 	
-	}	
+	public List<Pessoa> editarPessoas(List<Pessoa> pessoas) {
+		
+		Pessoa pessoa = new Pessoa();
+		listarPessoas(pessoas);
+		
+		if(pessoas.isEmpty()) {
+			return null;
+		}
+		System.out.println("\n");
+		System.out.print("Informe o Id da Pessoa: ");
+		int idPessoa = tec.nextInt() -1;
+		
+		System.out.println("\n");
+		System.out.println(" 1 -> Nome da Pessoa           ");
+		System.out.println(" 2 -> Ano de Nascimento        ");
+		System.out.println(" 3 -> Altura                   ");
+		System.out.print("Informe o Campo a ser Editado: ");
+		
+		int opcao = tec.nextInt();
+		switch (opcao) {
+		
+		case 1:
+			System.out.println("---EDITAR--NOME---");
+			System.out.print("Informe o nome da Pessoa: ");
+			pessoa.setNome(tec.next());
+			
+			pessoa.setAnoDeNascimento(pessoas.get(idPessoa).getAnoDeNascimento());
+			pessoa.setAltura(pessoas.get(idPessoa).getAltura());
+			
+			pessoas.set(idPessoa, pessoa);
+			break;
+			
+		case 2:
+			System.out.println("---EDITAR--ANO--DE--NASCIMENTO---");
+			System.out.print("Informe o ano de nascimento: ");
+			pessoa.setAnoDeNascimento(tec.nextInt());
+			
+			pessoa.setNome(pessoas.get(idPessoa).getNome());
+			pessoa.setAltura(pessoas.get(idPessoa).getAltura());
+			
+			pessoas.set(idPessoa, pessoa);
+			break;
+			
+		case 3:
+			System.out.println("---EDITAR--ALTURA---");
+			System.out.print("Informe sua altura: ");
+			pessoa.setAltura(tec.nextDouble());
+			
+			pessoa.setAnoDeNascimento(pessoas.get(idPessoa).getAnoDeNascimento());
+			pessoa.setNome(pessoas.get(idPessoa).getNome());
+			
+			pessoas.set(idPessoa, pessoa);
+			break;
+			
+			
+		}
+		
+		return pessoas;
+	}
+ 	
+	public void excluirPessoa (List<Pessoa> pessoas) {
+		
+		listarPessoas(pessoas);
+		
+		if(pessoas.isEmpty()) {
+			return;}
+		System.out.println("\n");
+		System.out.println("---EXCLUIR--PESSSOAS---");
+		
+		System.out.println("Informe o ID que deseja excluir: ");
+		int idPessoa = tec.nextInt() - 1;
+		
+		if(pessoas.size() <= idPessoa ) {
+			System.out.println("Pessoa não encontrada");
+			return;
+		}
+		pessoas.remove(idPessoa);
+	}
+}	

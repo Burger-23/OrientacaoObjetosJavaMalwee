@@ -13,8 +13,33 @@ public class ProgramaPrincipal {
 	public static void main(String[] args) {
 	
 		
-		List<Pessoa> pessoas = new ArrayList<>();
+		List<Pessoa> pessoas = new ArrayList<Pessoa>();
 		List<Produto> produtos = new ArrayList<Produto>();
+		
+		Produto produto = new Produto(
+				"Abacate",
+				2.5,
+				35,
+				2.5 * 35
+				);
+		produtos.add(produto);
+		
+		Pessoa pessoa = new Pessoa(
+				"Gabriel",
+				2004,
+				1.75,
+				"Brasil",
+				"BR",
+				"Santa Catarina",
+				"SC",
+				"Jaraguá do Sul",
+				"Pastor H Willians",
+				"Jaraguá 99",
+				35,
+				"Casa"
+				);
+		pessoas.add(pessoa);
+				
 		
 		PessoaController pessoaController = new PessoaController();
 		ProdutoController produtoController = new ProdutoController();
@@ -30,6 +55,7 @@ public class ProgramaPrincipal {
 			
 			
 			switch(opcao){
+			
 				case 1:
 					pessoas.add(pessoaController.cadastrarPessoa());
 					break;
@@ -38,18 +64,29 @@ public class ProgramaPrincipal {
 					pessoaController.listarPessoas(pessoas);
 					break;
 					
-				case 3:
-					produtos.add(produtoController.cadastrarProduto());
+				case 3: 
+					pessoaController.editarPessoas(pessoas);
 					break;
 					
 				case 4:
-					produtoController.listarProdutos(produtos);
+					pessoaController.excluirPessoa(pessoas);
 					break;
 					
 				case 5:
+					produtos.add(produtoController.cadastrarProduto());
+					break;
+					
+				case 6:
+					produtoController.listarProdutos(produtos);
+					break;
+					
+				case 7:
 					produtoController.editarProduto(produtos);
 					break;
 					
+				case 8: 
+					produtoController.excluirProduto(produtos);
+					break;
 				
 				case 0:
 					sair = true;
@@ -66,6 +103,6 @@ public class ProgramaPrincipal {
 		
 		
 		System.out.println("Sistema Finalizado!");
-
+		System.out.println("Programa By: Burger :)");
 	}
 }

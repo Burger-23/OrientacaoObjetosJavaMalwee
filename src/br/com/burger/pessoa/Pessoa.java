@@ -14,8 +14,18 @@ public class Pessoa extends Endereco {
 	private int idade;
 	private double altura;
 	
+	//CONSTRUTOR\\
+	public Pessoa() {
+	}
 	
-	
+	public Pessoa(String nome, int anoDeNascimento, int idade, double altura, String NomePais, String Sigla, String NomeEstado, String UF, String NomeCd) {
+		super();
+		this.nome = nome;
+		this.anoDeNascimento = anoDeNascimento;
+		this.idade = idade;
+		this.altura = altura;
+	}
+
 	//METODOS\\
 	public String getNome() {
 		return nome;
