@@ -18,17 +18,12 @@ public class PessoaController {
 
 	public void menu() {
 		System.out.println("\n");
-		System.out.println("|----------------MENU----------------|");
-		System.out.println("|1 -> CADASTRAR PESSOAS              |");
-		System.out.println("|2 -> LISTAR PESSOAS CADASTRADAS     |");
-		System.out.println("|3 -> EDITAR PESSOAS CADASTRADAS     |");
-		System.out.println("|4 -> EXCLUIR PESSOAS CADASTRADAS    |");
-		System.out.println("|5 -> CADASTRAR PRODUTOS             |");
-		System.out.println("|6 -> LISTAR PRODUTOS CADASTRADOS    |");
-		System.out.println("|7 -> EDITAR PRODUTO                 |");
-		System.out.println("|8 -> EXCLUIR PRODUTO                |");
-		System.out.println("|0 -> SAIR DO SISTEMA                |");
-		System.out.println("|------------------------------------|");
+		System.out.println("|----------------MENU-----------------|");
+		System.out.println("|01 -> MENU PESSOAS                   |");
+		System.out.println("|02 -> MENU PRODUTOS                  |");
+		System.out.println("|03 -> MENU VENDAS                    |");
+		System.out.println("|04 -> SAIR DO SISTEMA                |");
+		System.out.println("|-------------------------------------|");
 		System.out.print("\n");
 	
 	}

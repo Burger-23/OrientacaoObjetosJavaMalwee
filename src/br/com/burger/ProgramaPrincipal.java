@@ -5,6 +5,8 @@ import java.util.List;
 
 import br.com.burger.pessoa.Pessoa;
 import br.com.burger.pessoa.PessoaController;
+import br.com.senai.loja.Venda;
+import br.com.senai.loja.VendaController;
 import br.com.senai.produto.Produto;
 import br.com.senai.produto.ProdutoController;
 
@@ -15,6 +17,7 @@ public class ProgramaPrincipal {
 		
 		List<Pessoa> pessoas = new ArrayList<Pessoa>();
 		List<Produto> produtos = new ArrayList<Produto>();
+		List<Venda> vendas = new ArrayList<Venda>();
 		
 		Produto produto = new Produto(
 				"Abacate",
@@ -24,25 +27,9 @@ public class ProgramaPrincipal {
 				);
 		produtos.add(produto);
 		
-		Pessoa pessoa = new Pessoa(
-				"Gabriel",
-				2004,
-				1.75,
-				"Brasil",
-				"BR",
-				"Santa Catarina",
-				"SC",
-				"Jaraguá do Sul",
-				"Pastor H Willians",
-				"Jaraguá 99",
-				35,
-				"Casa"
-				);
-		pessoas.add(pessoa);
-				
-		
 		PessoaController pessoaController = new PessoaController();
 		ProdutoController produtoController = new ProdutoController();
+		VendaController vendaController = new VendaController();
 		
 		boolean sair = false;
 		
@@ -88,6 +75,15 @@ public class ProgramaPrincipal {
 					produtoController.excluirProduto(produtos);
 					break;
 				
+					
+				case 9:
+					vendaController.listarVenda(vendas);
+					break;
+					
+				case 10:
+					vendas.add(vendaController.cadastrarVenda(produtos, pessoas));
+					break;
+					
 				case 0:
 					sair = true;
 					break;
@@ -101,7 +97,7 @@ public class ProgramaPrincipal {
 			
 		}while(!sair);
 		
-		
+		System.out.print("\n");
 		System.out.println("Sistema Finalizado!");
 		System.out.println("Programa By: Burger :)");
 	}
