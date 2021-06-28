@@ -2,103 +2,73 @@ package br.com.burger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-import br.com.burger.pessoa.Pessoa;
-import br.com.burger.pessoa.PessoaController;
-import br.com.senai.loja.Venda;
-import br.com.senai.loja.VendaController;
-import br.com.senai.produto.Produto;
-import br.com.senai.produto.ProdutoController;
+import br.com.loja.Venda;
+import br.com.loja.VendaController;
+import br.com.pessoa.Pessoa;
+import br.com.pessoa.PessoaController;
+import br.com.produto.Produto;
+import br.com.produto.ProdutoController;
 
 public class ProgramaPrincipal {
 
 	public static void main(String[] args) {
-	
-		
-		List<Pessoa> pessoas = new ArrayList<Pessoa>();
+
+		Scanner tec = new Scanner(System.in);
+		List<Pessoa> pessoas = new ArrayList<>();
 		List<Produto> produtos = new ArrayList<Produto>();
 		List<Venda> vendas = new ArrayList<Venda>();
+
+		Produto produto = new Produto ("Abacate",2.5,35,2.5*35);
 		
-		Produto produto = new Produto(
-				"Abacate",
-				2.5,
-				35,
-				2.5 * 35
-				);
 		produtos.add(produto);
+				
 		
 		PessoaController pessoaController = new PessoaController();
 		ProdutoController produtoController = new ProdutoController();
 		VendaController vendaController = new VendaController();
-		
+
 		boolean sair = false;
-		
+
 		do {
-			
-			pessoaController.menu();
-			produtoController.menu();
-			
-			int opcao = pessoaController.lerOpcao();
-			
-			
-			switch(opcao){
-			
-				case 1:
-					pessoas.add(pessoaController.cadastrarPessoa());
-					break;
-					
-				case 2:
-					pessoaController.listarPessoas(pessoas);
-					break;
-					
-				case 3: 
-					pessoaController.editarPessoas(pessoas);
-					break;
-					
-				case 4:
-					pessoaController.excluirPessoa(pessoas);
-					break;
-					
-				case 5:
-					produtos.add(produtoController.cadastrarProduto());
-					break;
-					
-				case 6:
-					produtoController.listarProdutos(produtos);
-					break;
-					
-				case 7:
-					produtoController.editarProduto(produtos);
-					break;
-					
-				case 8: 
-					produtoController.excluirProduto(produtos);
-					break;
+				System.out.print("\n");
+				System.out.println("|-------------- MENU ---------------|");
+				System.out.println("|1 -> MENU PESSOAS                  |");
+				System.out.println("|2 -> MENU PRODUTOS                 |");
+				System.out.println("|3 -> MENU VENDAS                   |");
+				System.out.println("|0 -> SAIR                          |");
+				System.out.println("|-----------------------------------|");
+				System.out.print("Informe a Opção Desejada -> ");
 				
-					
-				case 9:
-					vendaController.listarVenda(vendas);
-					break;
-					
-				case 10:
-					vendas.add(vendaController.cadastrarVenda(produtos, pessoas));
-					break;
-					
-				case 0:
-					sair = true;
-					break;
-					
-				default:
-				System.out.println("Opção Inválida!");
+				int opcao= tec.nextInt();
+			switch (opcao) {
+			
+			case 1:
+				pessoaController.menu(pessoas);
 				break;
-			
-					
+				
+			case 2:
+				produtoController.menu(produtos);
+				break;
+			case 3:
+				vendaController.menu(produtos, pessoas);
+				break;
+			case 0:
+				sair = true;
+				
+				break;
+
+			default:
+				System.out.println("\n");
+				System.out.println("Opção Inválida!!");
+				
+				break;
+
 			}
-			
-		}while(!sair);
-		
-		System.out.print("\n");
-		System.out.println("Sistema Finalizado!");
-		System.out.println("Programa By: Burger :)");
+		} while (!sair);
+
+		System.out.println("\n");
+		System.out.println("Sistema Finalizado!!!");
 	}
 }

@@ -1,63 +1,51 @@
-package br.com.burger.pessoa;
+package br.com.pessoa;
 
 import java.util.Calendar;
 
-import br.com.senai.endereco.Endereco;
+import br.com.endereco.Endereco;
 
-	//CLASSE\\
+//CLASSE
 public class Pessoa extends Endereco {
 	
-	//ATRIBUTOS\\
-	
+	//ATRIBUTOS
 	private String nome;
 	private int anoDeNascimento;
 	private int idade;
 	private double altura;
 	
-	//CONSTRUTOR\\
-	public Pessoa() {
-	}
-	
-	public Pessoa(String nome, int anoDeNascimento, int idade, double altura, String NomePais, String Sigla, String NomeEstado, String UF, String NomeCd) {
-		super();
-		this.nome = nome;
-		this.anoDeNascimento = anoDeNascimento;
-		this.idade = idade;
-		this.altura = altura;
-	}
-
-	//METODOS\\
+	//MÉTODOS
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public int getAnoDeNascimento() {
 		return anoDeNascimento;
 	}
+	
 	public void setAnoDeNascimento(int anoDeNascimento) {
 		this.anoDeNascimento = anoDeNascimento;
 		setIdade();
 	}
+	
 	public int getIdade() {
 		return idade;
 	}
+	
 	private void setIdade() {
 		Calendar calendar = Calendar.getInstance();
-		this.idade = calendar.get(Calendar.YEAR) - getAnoDeNascimento();
 		
+		this.idade = calendar.get(Calendar.YEAR) - getAnoDeNascimento();
 	}
+	
 	public double getAltura() {
 		return altura;
 	}
+	
 	public void setAltura(double altura) {
 		this.altura = altura;
 	}
-	
-	
-	
-	
-	
-	
 }
